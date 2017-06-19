@@ -31,6 +31,10 @@ var chartSvg = fc.chartSvgCartesian(
   .xLabel('Value')
   .yLabel('Sine / Cosine')
   .chartLabel('Sine and Cosine')
+  .xTickValues([0, 1, 3, 5, 7, 9, 11])
+  .xTickSize(15)
+  .yTickValues([-1,-0.6,-0.2,0.2,0.6,1])
+  .yTickSize(15)
   .yDomain(yExtent(data))
   .xDomain(xExtent(data))
   .plotArea(multiSvg);

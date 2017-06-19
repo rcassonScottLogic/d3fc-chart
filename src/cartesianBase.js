@@ -19,9 +19,13 @@ export default (d3fcElementType, plotAreaDrawFunction) =>
         let plotArea = seriesSvgLine();
         let xTickFormat = null;
         let xTickArgs;
+        let xTickSize;
+        let xTickValues;
         let xDecorate = () => {};
         let yTickFormat = null;
         let yTickArgs;
+        let yTickSize;
+        let yTickValues;
         let yDecorate = () => {};
         let decorate = () => {};
 
@@ -117,6 +121,12 @@ export default (d3fcElementType, plotAreaDrawFunction) =>
                         if (yTickArgs) {
                             yAxis.ticks(...yTickArgs);
                         }
+                        if (yTickSize) {
+                            yAxis.tickSize(yTickSize);
+                        }
+                        if (yTickValues) {
+                            yAxis.tickValues(yTickValues);
+                        }
                         transitionPropagator(select(nodes[i]))
                           .select('svg')
                           .call(yAxis.scale(yScale));
@@ -136,6 +146,12 @@ export default (d3fcElementType, plotAreaDrawFunction) =>
                           .decorate(xDecorate);
                         if (xTickArgs) {
                             xAxis.ticks(...xTickArgs);
+                        }
+                        if (xTickSize) {
+                            xAxis.tickSize(xTickSize);
+                        }
+                        if (xTickValues) {
+                            xAxis.tickValues(xTickValues);
                         }
                         transitionPropagator(select(nodes[i]))
                           .select('svg')
@@ -178,6 +194,14 @@ export default (d3fcElementType, plotAreaDrawFunction) =>
             xTickArgs = args;
             return cartesian;
         };
+        cartesian.xTickSize = (...args) => {
+            xTickSize = args[0];
+            return cartesian;
+        };
+        cartesian.xTickValues = (...args) => {
+            xTickValues = args[0];
+            return cartesian;
+        };
         cartesian.xDecorate = (...args) => {
             if (!args.length) {
                 return xDecorate;
@@ -194,6 +218,14 @@ export default (d3fcElementType, plotAreaDrawFunction) =>
         };
         cartesian.yTicks = (...args) => {
             yTickArgs = args;
+            return cartesian;
+        };
+        cartesian.yTickSize = (...args) => {
+            yTickSize = args[0];
+            return cartesian;
+        };
+        cartesian.yTickValues = (...args) => {
+            yTickValues = args[0];
             return cartesian;
         };
         cartesian.yDecorate = (...args) => {
