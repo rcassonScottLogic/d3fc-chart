@@ -18,14 +18,22 @@ export default (d3fcElementType, plotAreaDrawFunction) =>
         let chartLabel = functor('');
         let plotArea = seriesSvgLine();
         let xTickFormat = null;
-        let xTickArgs;
+        let xTicks;
+        let xTickArguments;
         let xTickSize;
+        let xTickSizeInner;
+        let xTickSizeOuter;
         let xTickValues;
+        let xTickPadding;
         let xDecorate = () => {};
         let yTickFormat = null;
-        let yTickArgs;
+        let yTicks;
+        let yTickArguments;
         let yTickSize;
+        let yTickSizeInner;
+        let yTickSizeOuter;
         let yTickValues;
+        let yTickPadding;
         let yDecorate = () => {};
         let decorate = () => {};
 
@@ -118,14 +126,26 @@ export default (d3fcElementType, plotAreaDrawFunction) =>
                     .on('draw', (d, i, nodes) => {
                         yAxis.tickFormat(yTickFormat)
                           .decorate(yDecorate);
-                        if (yTickArgs) {
-                            yAxis.ticks(...yTickArgs);
+                        if (yTicks) {
+                            yAxis.ticks(...yTicks);
+                        }
+                        if (yTickArguments) {
+                            yAxis.tickArguments(yTickArguments);
                         }
                         if (yTickSize) {
                             yAxis.tickSize(yTickSize);
                         }
+                        if (yTickSizeInner) {
+                            yAxis.tickSizeInner(yTickSizeInner);
+                        }
+                        if (yTickSizeOuter) {
+                            yAxis.tickSizeOuter(yTickSizeOuter);
+                        }
                         if (yTickValues) {
                             yAxis.tickValues(yTickValues);
+                        }
+                        if (yTickPadding) {
+                            yAxis.tickPadding(yTickPadding);
                         }
                         transitionPropagator(select(nodes[i]))
                           .select('svg')
@@ -144,14 +164,26 @@ export default (d3fcElementType, plotAreaDrawFunction) =>
                     .on('draw', (d, i, nodes) => {
                         xAxis.tickFormat(xTickFormat)
                           .decorate(xDecorate);
-                        if (xTickArgs) {
-                            xAxis.ticks(...xTickArgs);
+                        if (xTicks) {
+                            xAxis.ticks(...xTicks);
+                        }
+                        if (xTickArguments) {
+                            xAxis.tickArguments(xTickArguments);
                         }
                         if (xTickSize) {
                             xAxis.tickSize(xTickSize);
                         }
+                        if (xTickSizeInner) {
+                            xAxis.tickSizeInner(xTickSizeInner);
+                        }
+                        if (xTickSizeOuter) {
+                            xAxis.tickSizeOuter(xTickSizeOuter);
+                        }
                         if (xTickValues) {
                             xAxis.tickValues(xTickValues);
+                        }
+                        if (xTickPadding) {
+                            xAxis.tickPadding(xTickPadding);
                         }
                         transitionPropagator(select(nodes[i]))
                           .select('svg')
@@ -191,15 +223,31 @@ export default (d3fcElementType, plotAreaDrawFunction) =>
             return cartesian;
         };
         cartesian.xTicks = (...args) => {
-            xTickArgs = args;
+            xTicks = args;
+            return cartesian;
+        };
+        cartesian.xTickArguments = (...args) => {
+            xTickArguments = args[0];
             return cartesian;
         };
         cartesian.xTickSize = (...args) => {
             xTickSize = args[0];
             return cartesian;
         };
+        cartesian.xTickSizeInner = (...args) => {
+            xTickSizeInner = args[0];
+            return cartesian;
+        };
+        cartesian.xTickSizeOuter = (...args) => {
+            xTickSizeOuter = args[0];
+            return cartesian;
+        };
         cartesian.xTickValues = (...args) => {
             xTickValues = args[0];
+            return cartesian;
+        };
+        cartesian.xTickPadding = (...args) => {
+            xTickPadding = args[0];
             return cartesian;
         };
         cartesian.xDecorate = (...args) => {
@@ -217,15 +265,31 @@ export default (d3fcElementType, plotAreaDrawFunction) =>
             return cartesian;
         };
         cartesian.yTicks = (...args) => {
-            yTickArgs = args;
+            yTicks = args;
+            return cartesian;
+        };
+        cartesian.yTickArguments = (...args) => {
+            yTickArguments = args[0];
             return cartesian;
         };
         cartesian.yTickSize = (...args) => {
             yTickSize = args[0];
             return cartesian;
         };
+        cartesian.yTickSizeInner = (...args) => {
+            yTickSizeInner = args[0];
+            return cartesian;
+        };
+        cartesian.yTickSizeOuter = (...args) => {
+            yTickSizeOuter = args[0];
+            return cartesian;
+        };
         cartesian.yTickValues = (...args) => {
             yTickValues = args[0];
+            return cartesian;
+        };
+        cartesian.yTickPadding = (...args) => {
+            yTickPadding = args[0];
             return cartesian;
         };
         cartesian.yDecorate = (...args) => {
