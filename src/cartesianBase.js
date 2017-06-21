@@ -223,30 +223,51 @@ export default (d3fcElementType, plotAreaDrawFunction) =>
             return cartesian;
         };
         cartesian.xTicks = (...args) => {
+            if (!args.length) {
+                return xTicks;
+            }
             xTicks = args;
             return cartesian;
         };
         cartesian.xTickArguments = (...args) => {
+            if (!args.length) {
+                return xTickArguments;
+            }
             xTickArguments = args[0];
             return cartesian;
         };
         cartesian.xTickSize = (...args) => {
+            if (!args.length) {
+                return xTickSize;
+            }
             xTickSize = args[0];
             return cartesian;
         };
         cartesian.xTickSizeInner = (...args) => {
+            if (!args.length) {
+                return xTickSizeInner;
+            }
             xTickSizeInner = args[0];
             return cartesian;
         };
         cartesian.xTickSizeOuter = (...args) => {
+            if (!args.length) {
+                return xTickSizeOuter;
+            }
             xTickSizeOuter = args[0];
             return cartesian;
         };
         cartesian.xTickValues = (...args) => {
+            if (!args.length) {
+                return xTickValues;
+            }
             xTickValues = args[0];
             return cartesian;
         };
         cartesian.xTickPadding = (...args) => {
+            if (!args.length) {
+                return xTickPadding;
+            }
             xTickPadding = args[0];
             return cartesian;
         };
@@ -265,30 +286,51 @@ export default (d3fcElementType, plotAreaDrawFunction) =>
             return cartesian;
         };
         cartesian.yTicks = (...args) => {
+            if (!args.length) {
+                return yTicks;
+            }
             yTicks = args;
             return cartesian;
         };
         cartesian.yTickArguments = (...args) => {
+            if (!args.length) {
+                return yTickArguments;
+            }
             yTickArguments = args[0];
             return cartesian;
         };
         cartesian.yTickSize = (...args) => {
+            if (!args.length) {
+                return yTickSize;
+            }
             yTickSize = args[0];
             return cartesian;
         };
         cartesian.yTickSizeInner = (...args) => {
+            if (!args.length) {
+                return yTickSizeInner;
+            }
             yTickSizeInner = args[0];
             return cartesian;
         };
         cartesian.yTickSizeOuter = (...args) => {
+            if (!args.length) {
+                return yTickSizeOuter;
+            }
             yTickSizeOuter = args[0];
             return cartesian;
         };
         cartesian.yTickValues = (...args) => {
+            if (!args.length) {
+                return yTickValues;
+            }
             yTickValues = args[0];
             return cartesian;
         };
         cartesian.yTickPadding = (...args) => {
+            if (!args.length) {
+                return yTickPadding;
+            }
             yTickPadding = args[0];
             return cartesian;
         };
